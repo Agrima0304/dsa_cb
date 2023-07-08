@@ -1,0 +1,36 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+bool compareNumbers(const string& a, const string& b) {
+    string ab = a + b;
+    string ba = b + a;
+    return ab > ba;
+}
+
+int main() {
+    int t;
+    cin >> t;
+
+    while (t--) {
+        int n;
+        cin >> n;
+
+        vector<string> A(n);
+        for (int i = 0; i < n; i++) {
+            cin >> A[i];
+        }
+
+        sort(A.begin(), A.end(), compareNumbers);
+
+        string largestValue = "";
+        for (const string& num : A) {
+            largestValue += num;
+        }
+
+        cout << largestValue << endl;
+    }
+
+    return 0;
+}
