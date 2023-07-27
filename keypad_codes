@@ -1,0 +1,29 @@
+#include<iostream>
+using namespace std;
+string t[]={"","abc","def","ghi","jkl","mno","pqrs","tuv","wx","yz"};
+int c=0;
+void printify(string s, char out[],int i,int j)
+{
+	if(s[i]=='\0')
+	{
+		c++;
+		out[j]='\0';
+		cout<<out<<" ";
+		return;
+	}
+	int digit=s[i]-'0';
+	for(int k=0;k<t[digit].size();k++)
+	{
+		out[j]=t[digit][k];
+		printify(s,out,i+1,j+1);
+	}
+}
+int main() {
+	string s;
+	cin>>s;
+    char out[100];
+	printify(s,out,0,0);
+	cout<<endl;
+	cout<<c;
+	return 0;
+}
